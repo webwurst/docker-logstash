@@ -1,0 +1,19 @@
+elasticsearch:
+  image: webwurst/elasticsearch
+  ports:
+    - "9200"
+    - "9300"
+
+logstash:
+  build: .
+  ports:
+    - "25826:25826/udp"
+  links:
+    - elasticsearch
+
+kibana:
+  image: webwurst/kibana
+  ports:
+    - "80"
+  links:
+    - elasticsearch
