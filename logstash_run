@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-cd /opt/logstash
+cd /usr/local/src
 envconf --in logstash.conf.env --out logstash.conf
 exec bin/logstash -f logstash.conf --verbose
